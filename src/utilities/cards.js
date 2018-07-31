@@ -1,62 +1,74 @@
 export const cards = [
   {
     id: 1,
-    name: 'logo',
-    imgSrc: 'https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/MIN.svg',
+    name: 'Elflein',
+    number: 65,
+    imgSrc: 'https://res.cloudinary.com/nflclubs/image/private/t_thumb_squared/f_auto/vikings/ibydqfli9t97d02buhj6.jpg'
   },
   {
     id: 2,
-    name: 'cousins',
-    imgSrc: 'https://www.twincities.com/wp-content/uploads/2018/07/Vikings-Camp031.jpg?w=400',
+    name: 'Cousins',
+    number: 8,
+    imgSrc: 'https://res.cloudinary.com/nflclubs/image/private/t_thumb_squared/f_auto/vikings/khugu9xobhkodtmfpy5u.jpg'
   },
   {
     id: 3,
-    name: 'cook',
-    imgSrc: 'https://www.twincities.com/wp-content/uploads/2017/08/vikings-bills006.jpg?w=400',
+    name: 'Cook',
+    number: 33,
+    imgSrc: 'https://res.cloudinary.com/nflclubs/image/private/t_thumb_squared/f_auto/vikings/twzccqszxhlzugzn6hrg.jpg'
   },
   {
     id: 4,
-    name: 'diggs',
-    imgSrc: 'https://www.twincities.com/wp-content/uploads/2018/01/vikings-saints-final001.jpg?w=400',
+    name: 'Diggs',
+    number: 14,
+    imgSrc: 'https://res.cloudinary.com/nflclubs/image/private/t_thumb_squared/f_auto/vikings/sxltpvpbpavogdipprhd.jpg'
   },
   {
     id: 5,
-    name: 'thielen',
-    imgSrc: 'https://www.twincities.com/wp-content/uploads/2016/12/jea-4493-vikngs-at-packers-1224.jpg?w=400',
+    name: 'Thielen',
+    number: 19,
+    imgSrc: 'https://res.cloudinary.com/nflclubs/image/private/t_thumb_squared/f_auto/vikings/kcvahr3wkurwl5jffg9z.jpg'
   },
   {
     id: 6,
-    name: 'rudolph',
-    imgSrc: 'https://www.twincities.com/wp-content/uploads/2017/12/new-panthers-beat-vikings021.jpg?w=400',
+    name: 'Rudolph',
+    number: 82,
+    imgSrc: 'https://res.cloudinary.com/nflclubs/image/private/t_thumb_squared/f_auto/vikings/kxt3v8kt6biiz4bo8ggb.jpg'
   },
   {
     id: 7,
-    name: 'rhodes',
-    imgSrc: 'https://www.twincities.com/wp-content/uploads/2016/11/20130919__9-19-xavier-rhodes.jpg?w=400',
+    name: 'Rhodes',
+    number: 29,
+    imgSrc: 'https://res.cloudinary.com/nflclubs/image/private/t_thumb_squared/f_auto/vikings/t7jgfjevqf035p7lohow.jpg'
   },
   {
     id: 8,
-    name: 'smith',
-    imgSrc: 'https://www.twincities.com/wp-content/uploads/2015/10/wpid-20141221__141221_Vikings-HarrisonSmith.jpg?w=400',
+    name: 'Smith',
+    number: 22,
+    imgSrc: 'https://res.cloudinary.com/nflclubs/image/private/t_thumb_squared/f_auto/vikings/hubfxex6nvkgc7hs2q2c.jpg'
   },
   {
     id: 9,
-    name: 'hunter',
-    imgSrc: 'https://www.twincities.com/wp-content/uploads/2016/09/vikings-beat-titans001.jpg?w=400',
+    name: 'Hunter',
+    number: 99,
+    imgSrc: 'https://res.cloudinary.com/nflclubs/image/private/t_thumb_squared/f_auto/vikings/kgmybmqktfvw2wpablhb.jpg'
   },
   {
     id: 10,
-    name: 'griffen',
-    imgSrc: 'https://www.twincities.com/wp-content/uploads/2016/12/vikings-jaguars-01-e1493325286708.jpg?w=400',
+    name: 'Griffen',
+    number: 97,
+    imgSrc: 'https://res.cloudinary.com/nflclubs/image/private/t_thumb_squared/f_auto/vikings/snms7x5lmenlol8owgmt.jpg'
   },
   {
     id: 11,
-    name: 'barr',
-    imgSrc: 'https://i1.wp.com/www.twincities.com/wp-content/uploads/2017/10/vikings-packers001.jpg?w=400',
+    name: 'Barr',
+    number: 55,
+    imgSrc: 'https://res.cloudinary.com/nflclubs/image/private/t_thumb_squared/f_auto/vikings/z4epxqhyydupw1syo3oo.jpg'
   },
   {
     id: 12,
-    name: 'zimmer',
-    imgSrc: 'https://www.twincities.com/wp-content/uploads/2016/01/20151218__151220zimmercover.jpg?w=400',
+    name: 'Joseph',
+    number: 98,
+    imgSrc: 'https://res.cloudinary.com/nflclubs/image/private/t_thumb_squared/f_auto/vikings/fii1ppk4wegn3cml8jfh.jpg'
   },
 ]

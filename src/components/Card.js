@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 
 class Card extends Component {
   render() {
+    const { imgSrc, name, number } = this.props;
+
     return (
-      <p>Card</p>
+      <div className="card" >
+        <p>{name}</p>
+        <img src={imgSrc} />
+        <p>{number}</p>
+      </div>
     );
   }
 }

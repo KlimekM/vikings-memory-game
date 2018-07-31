@@ -7,18 +7,6 @@
 
 .header {
   grid-area: header;
-}
-
-.game-board {
-  grid-area: content;
-  margin: 0 5%;
-  display: grid;
-  grid-gap: 1%;
-  grid-template-columns: repeat(6, auto);
-  text-align: center;
-}
-
-.header {
   border-bottom: 5px solid #FFC62F;
   text-align: center;
   color: #FFC62F;
@@ -27,4 +15,36 @@
 
 .header > h1 {
   font-size: 4em;
+}
+
+.game-board {
+  grid-area: content;
+  margin: 0 5% 10px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(6, 1fr);
+  text-align: center;
+}
+
+.card {
+  background: #4F2683;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.card > img {
+  width: 50px;
+  margin: 0 auto;
+}
+
+.card > p {
+  margin: 0;
+  color: #FFC62F;
+  font-size: 40px;
+}
+
+.card > p:first-child {
+  font-size: 27px;
 }
