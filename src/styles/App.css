@@ -1,0 +1,30 @@
+.app {
+  display: grid;
+  grid-gap: 1em;
+  grid-template-areas: "header"
+                       "content";
+}
+
+.header {
+  grid-area: header;
+}
+
+.game-board {
+  grid-area: content;
+  margin: 0 5%;
+  display: grid;
+  grid-gap: 1%;
+  grid-template-columns: repeat(6, auto);
+  text-align: center;
+}
+
+.header {
+  border-bottom: 5px solid #FFC62F;
+  text-align: center;
+  color: #FFC62F;
+  background: #4F2683;
+}
+
+.header > h1 {
+  font-size: 4em;
+}
