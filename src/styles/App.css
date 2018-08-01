@@ -19,14 +19,18 @@
 
 .game-board {
   grid-area: content;
-  margin: 0 5% 10px;
+  margin: 0 auto 10px;
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, 184px);
   text-align: center;
 }
 
 .card {
+  height: 138px;
+}
+
+.card-front {
   background: #4F2683;
   display: flex;
   align-content: center;
@@ -34,17 +38,29 @@
   padding: 5px;
 }
 
-.card > img {
+.card-front__image {
   width: 50px;
   margin: 0 auto;
 }
 
-.card > p {
+.card-front__text {
   margin: 0;
   color: #FFC62F;
   font-size: 40px;
 }
 
-.card > p:first-child {
+.card-front__name {
   font-size: 27px;
+}
+
+.card-back {
+  width: 100%;
+  height: 100%;
+  background: #4F2683;
+  display: flex;
+  justify-content: center;
+}
+
+.card-back__image {
+  width: 100px;
 }
