@@ -17,10 +17,20 @@ class GameBoard extends Component {
     }
   }
 
+  handleCardClick = (cardId) => {
+    const cardsClone = JSON.parse(JSON.stringify(this.state.cards));
+    const card = cardsClone.find((card) => card.id === cardId);
+    card.isFlipped = true;
+
+    this.setState({
+      cards: cardsClone
+    });
+  }
+
   render() {
     const { cards } = this.state;
     const gameCards = cards && cards.map((card) =>
-      <Card key={card.id} {...card} />
+      <Card key={card.id} onClick={this.handleCardClick} {...card} />
     );
 
     return (

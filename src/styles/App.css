@@ -28,6 +28,7 @@
 
 .card {
   height: 138px;
+  cursor: pointer;
 }
 
 .card-front {
@@ -63,4 +64,12 @@
 
 .card-back__image {
   width: 100px;
+}
+
+.card-front--hide {
+  display: none;
+}
+
+.card-back--hide {
+  display: none;
 }
