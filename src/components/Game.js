@@ -35,13 +35,15 @@ class Game extends Component {
 
     if (flippedCards.length === 2) {
       if (flippedCards[0].number === flippedCards[1].number) {
+        await this.delay(this.toggleSuccessfulMatchAnimationClass(flippedCards[0], flippedCards[1]));
         flippedCards.map((card) => {
           card.isMatched = true
           return card;
         });
+        this.toggleSuccessfulMatchAnimationClass(flippedCards[0], flippedCards[1]);
       } else {
         this.toggleGameBoardPointerEvents();
-        await this.delayFlip(
+        await this.delay(
           flippedCards.map((card) => {
             card.isFlipped = false;
             return card;
@@ -56,12 +58,20 @@ class Game extends Component {
     });
   }
 
+  toggleSuccessfulMatchAnimationClass = (card1, card2) => {
+    const firstCard = document.getElementById(`card-${card1.id}`);
+    const secondCard = document.getElementById(`card-${card2.id}`);
+
+    firstCard.classList.toggle('card-front--shake');
+    secondCard.classList.toggle('card-front--shake');
+  }
+
   toggleGameBoardPointerEvents = () => {
     const gameBoard = document.querySelector('.game-board');
     gameBoard.classList.toggle('game-board--disabled');
   }
 
-  delayFlip = (fn) => {
+  delay = (fn) => {
     return new Promise((resolve) => {
       setTimeout(() => resolve(fn), 1000)
     });
