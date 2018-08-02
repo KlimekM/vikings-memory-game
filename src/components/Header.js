@@ -4,7 +4,7 @@ class Header extends Component {
   render() {
     return (
       <header className="header">
-        <h1>Vikings Memory Game</h1>
+        <h1 className="header__title">Vikings Memory Game</h1>
       </header>
     );
   }

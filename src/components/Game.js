@@ -35,13 +35,14 @@ class Game extends Component {
 
     if (flippedCards.length === 2) {
       if (flippedCards[0].number === flippedCards[1].number) {
-        await this.delay(this.toggleSuccessfulMatchAnimationClass(flippedCards[0], flippedCards[1]));
+        await this.delay(this.toggleAnimationClass(flippedCards[0], flippedCards[1], 'card-front--successful-match'));
         flippedCards.map((card) => {
           card.isMatched = true
           return card;
         });
-        this.toggleSuccessfulMatchAnimationClass(flippedCards[0], flippedCards[1]);
+        this.toggleAnimationClass(flippedCards[0], flippedCards[1], 'card-front--successful-match');
       } else {
+        this.toggleAnimationClass(flippedCards[0], flippedCards[1], 'card-front--shake');
         this.toggleGameBoardPointerEvents();
         await this.delay(
           flippedCards.map((card) => {
@@ -49,6 +50,7 @@ class Game extends Component {
             return card;
           })
         );
+        this.toggleAnimationClass(flippedCards[0], flippedCards[1], 'card-front--shake');
         this.toggleGameBoardPointerEvents();
       }
     }
@@ -58,12 +60,12 @@ class Game extends Component {
     });
   }
 
-  toggleSuccessfulMatchAnimationClass = (card1, card2) => {
+  toggleAnimationClass = (card1, card2, animationClass) => {
     const firstCard = document.getElementById(`card-${card1.id}`);
     const secondCard = document.getElementById(`card-${card2.id}`);
 
-    firstCard.classList.toggle('card-front--shake');
-    secondCard.classList.toggle('card-front--shake');
+    firstCard.classList.toggle(animationClass);
+    secondCard.classList.toggle(animationClass);
   }
 
   toggleGameBoardPointerEvents = () => {
