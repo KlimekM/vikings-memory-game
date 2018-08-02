@@ -2,6 +2,7 @@
   display: grid;
   grid-gap: 1em;
   grid-template-areas: "header"
+                       "nav"
                        "content";
 }
 
@@ -90,7 +91,8 @@
   background: #ffffff;
   border-radius: 5%;
   margin: 0 auto;
-  padding: 30px
+  padding: 30px;
+  text-align: center;
 }
 
 .modal__close {
@@ -105,11 +107,12 @@
   width: 200px;
 }
 
-.modal__reset-button {
+.reset-button {
   background: #4F2683;
   color: #FFC62F;
   margin: 0 auto;
   width: 120px;
   padding: 5px;
   cursor: pointer;
+  text-align: center;
 }

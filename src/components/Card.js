@@ -17,11 +17,11 @@ class Card extends Component {
       <div className="card" id={`card-${id}`} onClick={this.handleClick}>
           <div className={isFlipped || isMatched ? "card-front" : "card-front--hide"}>
             <p className="card-front__text card-front__name">{name}</p>
-            <img className="card-front__image" src={imgSrc} />
+            <img className="card-front__image" alt={name} src={imgSrc} />
             <p className="card-front__text">{number}</p>
           </div>
           <div className={isFlipped ? "card-back--hide" : "card-back"}>
-            <img className="card-back__image" src={logo} />
+            <img className="card-back__image" alt="logo" src={logo} />
           </div>
       </div>
     );

@@ -1,4 +1,4 @@
-export const cards = [
+export const vikingsCards = [
   {
     id: 1,
     name: 'Elflein',
@@ -96,3 +96,13 @@ export const cards = [
     isMatched: false,
   },
 ]
+
+export const createCardDeck = (cards) => {
+  /* creating a deep clone of the original 12 card array so that there are 12 card pairs and I can increment the id to pass it as a unique identifier key for the card component */
+  const cardsClone = JSON.parse(JSON.stringify(cards)).map((card) => {
+    card.id += 12;
+    return card;
+  });
+
+  return [...cards, ...cardsClone];
+};

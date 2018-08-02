@@ -1,25 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Card from './Card';
 import WinnerModal from './WinnerModal';
-import { cards } from '../utilities/cards';
+import ResetGameButton from './ResetGameButton';
+import { vikingsCards, createCardDeck } from '../utilities/cards';
 
-class GameBoard extends Component {
+class Game extends Component {
   constructor(props) {
     super(props)
 
-    /* creating a deep clone of the original 12 card array so that I can increment the id to pass it as a unique identifier key for the card component */
-    const cardsClone = JSON.parse(JSON.stringify(cards)).map((card) => {
-      card.id += 12;
-      return card;
-    });
-
     this.state = {
-      cards: [...cards, ...cardsClone],
+      cards: createCardDeck(vikingsCards),
       cardsSelected: [],
+      hasClosedModal: false,
     }
   }
 
   handleCardClick = async (cardId) => {
+    /* using a cardsClone so that we don't directly mutate the cards in this.state */
     const cardsClone = JSON.parse(JSON.stringify(this.state.cards));
     const card = cardsClone.find((card) => card.id === cardId);
     card.isFlipped = true;
@@ -32,6 +29,7 @@ class GameBoard extends Component {
   }
 
   checkCardsSelected = async () => {
+    /* using a cardsClone so that we don't directly mutate the cards in this.state */
     const cardsClone = JSON.parse(JSON.stringify(this.state.cards));
     const flippedCards = cardsClone.filter((card) => card.isFlipped === true && card.isMatched === false);
 
@@ -62,20 +60,37 @@ class GameBoard extends Component {
     });
   }
 
+  closeWinnerModal = () => {
+    this.setState({
+      hasClosedModal: true,
+    });
+  }
+
+  resetGame = () => {
+    this.setState({
+      cards: createCardDeck(vikingsCards),
+      cardsSelected: [],
+      hasClosedModal: false,
+    });
+  }
+
   render() {
-    const { cards } = this.state;
+    const { cards, hasClosedModal } = this.state;
     const gameCards = cards && cards.map((card) =>
       <Card key={card.id} onClick={this.handleCardClick} {...card} />
     );
     const hasWon = cards.every((card) => card.isMatched === true);
 
     return (
-      <div className="game-board">
-        {gameCards}
-        {hasWon && <WinnerModal />}
-      </div>
+      <Fragment>
+        <ResetGameButton resetGame={this.resetGame} />
+        <div className="game-board">
+          {gameCards}
+        </div>
+        {hasWon && !hasClosedModal && <WinnerModal closeWinnerModal={this.closeWinnerModal} resetGame={this.resetGame} />}
+      </Fragment>
     );
   }
 }
 
-export default GameBoard;
+export default Game;
