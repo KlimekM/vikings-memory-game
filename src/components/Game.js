@@ -40,18 +40,25 @@ class Game extends Component {
           return card;
         });
       } else {
+        this.toggleGameBoardPointerEvents();
         await this.delayFlip(
           flippedCards.map((card) => {
             card.isFlipped = false;
             return card;
           })
         );
+        this.toggleGameBoardPointerEvents();
       }
     }
 
     this.setState({
       cards: cardsClone,
     });
+  }
+
+  toggleGameBoardPointerEvents = () => {
+    const gameBoard = document.querySelector('.game-board');
+    gameBoard.classList.toggle('game-board--disabled');
   }
 
   delayFlip = (fn) => {

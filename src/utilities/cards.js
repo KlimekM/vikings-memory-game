@@ -95,7 +95,28 @@ export const vikingsCards = [
     isFlipped: false,
     isMatched: false,
   },
-]
+];
+
+/* slightly modified implementation of the Fisher-Yates shuffle from here: https://bost.ocks.org/mike/shuffle/ */
+const shuffle = (array) => {
+  let originalArrayLength = array.length;
+  let i = 0;
+  let j = 0;
+
+  // While there remain elements to shuffle
+  while (originalArrayLength) {
+
+    // Pick a remaining element
+    i = Math.floor(Math.random() * (originalArrayLength -= 1));
+
+    // And swap it with the current element.
+    j = array[originalArrayLength];
+    array[originalArrayLength] = array[i];
+    array[i] = j;
+  }
+
+  return array;
+}
 
 export const createCardDeck = (cards) => {
   /* creating a deep clone of the original 12 card array so that there are 12 card pairs and I can increment the id to pass it as a unique identifier key for the card component */
@@ -104,5 +125,5 @@ export const createCardDeck = (cards) => {
     return card;
   });
 
-  return [...cards, ...cardsClone];
+  return shuffle([...cards, ...cardsClone]);
 };
