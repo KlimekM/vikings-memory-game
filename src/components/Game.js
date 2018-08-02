@@ -34,25 +34,31 @@ class Game extends Component {
     const flippedCards = cardsClone.filter((card) => card.isFlipped === true && card.isMatched === false);
 
     if (flippedCards.length === 2) {
+      /* disable pointer events while the cards are checked for a match */
+      this.toggleGameBoardPointerEvents();
       if (flippedCards[0].number === flippedCards[1].number) {
+        /* if the cards are a match, toggle the success animation and mark isMatched on each card to true */
         await this.delay(this.toggleAnimationClass(flippedCards[0], flippedCards[1], 'card-front--successful-match'));
         flippedCards.map((card) => {
           card.isMatched = true
           return card;
         });
+        /* remove the successful match class in case the game is reset */
         this.toggleAnimationClass(flippedCards[0], flippedCards[1], 'card-front--successful-match');
       } else {
+        /* if the cards are not a match, toggle the unsuccessful animation and flip the cards back to their original state */
         this.toggleAnimationClass(flippedCards[0], flippedCards[1], 'card-front--shake');
-        this.toggleGameBoardPointerEvents();
         await this.delay(
           flippedCards.map((card) => {
             card.isFlipped = false;
             return card;
           })
         );
+        /* remove the unsuccessful match class so that it is applied upon subsequent match attempts */
         this.toggleAnimationClass(flippedCards[0], flippedCards[1], 'card-front--shake');
-        this.toggleGameBoardPointerEvents();
       }
+      /* re-enable pointer events upon checking cards for a match */
+      this.toggleGameBoardPointerEvents();
     }
 
     this.setState({
